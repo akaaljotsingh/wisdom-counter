@@ -1,28 +1,18 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title> 
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Count History</ion-label>
+    </ion-list-header>
+    <ion-item-sliding *ngFor="let item of countHistory; let i = index">
+      <ion-item>
+        <ion-label><span class="history-count">{{ item.count }}</span> <span class="history-name">{{ item.name }}</span></ion-label>
+        <button class="cont-btn" (click)="continueWithCount(i)">Continue</button>
+        <!-- <ion-button (click)="continueWithCount(i)"  fill="outline">Continue</ion-button> -->
+      </ion-item>
   
-  
-  <h2>Count History</h2>
-<ul>
-  <li *ngFor="let item of countHistory; let i = index">
-    <span>{{ item.name }}: {{ item.count }}</span>
-    <button (click)="deleteCount(i)">Delete</button>
-    <button (click)="continueWithCount(i)">Continue</button>
-  </li>
-</ul>
-<button routerLink="/counter">Back to Counter</button>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" expandable (click)="deleteCount(i)">Delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 
-  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
-</ion-content>
+

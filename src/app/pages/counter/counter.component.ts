@@ -10,13 +10,15 @@ import { HistoryComponent } from "../history/history.component";
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, CommonModule, FormsModule],
+  imports: [IonContent, CommonModule, FormsModule],
 })
 export class CounterComponent  implements OnInit {
 
   count: number = 0;
   userName: string = '';
   countHistory: { name: string; count: number }[] = [];
+isPressed: any;
+  saved: boolean = false;
 
   constructor(private sharedService: SharedService){}
 
@@ -62,8 +64,11 @@ export class CounterComponent  implements OnInit {
   
     // Save the updated history back to localStorage
     localStorage.setItem('countHistory', JSON.stringify(countHistory));
-  
-    alert('Count saved successfully!');
+    
+    this.saved = true;
+    setTimeout(() => {
+      this.saved = false;
+    }, 2000);
   }
   
 
