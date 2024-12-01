@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title> 
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="counter-container">
+    <h2>Counter</h2>
+    <div>
+      <label for="nameInput">Name:</label>
+      <input id="nameInput" type="text" [(ngModel)]="userName" placeholder="Enter name" />
+    </div>
+    <h3>Count: {{ count }}</h3>
+    <button (click)="incrementCount()">Increment</button>
+    <button (click)="resetCount()">Reset</button>
+    <button (click)="saveCount()" [disabled]="!userName">Save</button>
+  
+    <!-- Include the History Component -->
+    <!-- <app-history
+      [countHistory]="countHistory"
+      (deleteHistoryItem)="deleteCount($event)"
+      (continueWithHistoryItem)="continueWithCount($event)"
+    ></app-history> -->
+  </div>
+
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
+</ion-content>
