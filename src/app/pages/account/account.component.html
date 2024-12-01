@@ -1,0 +1,13 @@
+<div class="wrap">
+  @if(userDetails) {
+    <div class="text-center">
+      <h1>👋</h1>
+      <h2>Hi, {{userDetails?.multiFactor?.user?.displayName}}</h2>
+      <!-- <p>You are signed in as :</p> -->
+      <h3>{{userDetails?.multiFactor?.user?.email}}</h3>
+      <button class="cont-btn" (click)="logout()">Logout</button>
+    </div>
+  } @else {
+    <img src="../../../assets/loader.gif" alt="">
+  }
+</div>

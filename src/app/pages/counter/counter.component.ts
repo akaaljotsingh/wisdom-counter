@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { AngularFireModule } from '@angular/fire/compat';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { SharedService } from 'src/app/shared/shared.service';
@@ -10,7 +11,9 @@ import { HistoryComponent } from "../history/history.component";
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule],
+  imports: [IonContent, CommonModule, FormsModule
+  ],
+  providers: [SharedService]
 })
 export class CounterComponent  implements OnInit {
 

@@ -1,0 +1,23 @@
+.wrap {
+    height: 90vh;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h2 {
+        margin-top: 28px;
+        font-size: 2rem;
+    }
+    p {
+        margin-top: 30px;
+        color: black;
+        margin-bottom: 7px;
+    }
+    h3 {
+        margin-top: 0;
+        margin-bottom: 80px;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+}
