@@ -27,6 +27,16 @@ isPressed: any;
 
   ngOnInit() {
     const selectedEntry = this.sharedService.getSelectedEntry();
+    console.log("🚀 ~ CounterComponent ~ ngOnInit ~ selectedEntry:", selectedEntry)
+    if (selectedEntry) {
+      this.userName = selectedEntry.name;
+      this.count = selectedEntry.count;
+    }
+  }
+
+  ionViewWillEnter() {
+    const selectedEntry = this.sharedService.getSelectedEntry();
+    console.log("🚀 ~ CounterComponent ~ ngOnInit ~ selectedEntry:", selectedEntry)
     if (selectedEntry) {
       this.userName = selectedEntry.name;
       this.count = selectedEntry.count;
@@ -34,7 +44,9 @@ isPressed: any;
   }
 
   incrementCount() {
-    this.count++;
+    if (this.count < 9999) {
+      this.count++;
+    }
   }
 
   resetCount() {

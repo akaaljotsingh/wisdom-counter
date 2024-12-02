@@ -33,6 +33,12 @@ export class AccountComponent  implements OnInit {
     });
   }
 
+  ionViewWillEnter() {
+    this.auth.getUserDetails().subscribe((user) => {
+      this.userDetails = user; // Save the user details for use in the component
+    });
+  }
+
   login() {
     
   }

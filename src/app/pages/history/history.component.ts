@@ -12,7 +12,7 @@ import { SharedService } from 'src/app/shared/shared.service';
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, CommonModule, FormsModule, IonicModule],
+  imports: [CommonModule, FormsModule, IonicModule],
 
 })
 export class HistoryComponent  implements OnInit {
@@ -20,7 +20,15 @@ export class HistoryComponent  implements OnInit {
 
   constructor(private sharedService: SharedService, private router: Router) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // Load history from localStorage
+    const savedHistory = localStorage.getItem('countHistory');
+    if (savedHistory) {
+      this.countHistory = JSON.parse(savedHistory);
+    }
+  }
+
+  ionViewWillEnter() {
     // Load history from localStorage
     const savedHistory = localStorage.getItem('countHistory');
     if (savedHistory) {

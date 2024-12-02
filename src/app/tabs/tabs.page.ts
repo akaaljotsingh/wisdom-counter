@@ -23,7 +23,7 @@ export class TabsPage {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Check if the current route is 'login'
-        this.showTabs = !event.url.includes('/login');
+        // this.showTabs = !event.url.includes('/login');
       }
     });
   }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { GoogleAuth } from 'capacitor-google-auth';
+// import { GoogleAuth } from 'capacitor-google-auth';
 import { initializeApp } from 'firebase/app';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
