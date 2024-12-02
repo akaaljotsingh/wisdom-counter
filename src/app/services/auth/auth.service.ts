@@ -21,40 +21,40 @@ export class AuthService {
   }
 
   // Google login function
+  async googleLogin() {
+    try {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      await this.afAuth.signInWithPopup(provider);
+      // Handle successful login
+    } catch (error) {
+      // Handle login errors
+    }
+  }
+
   // async googleLogin() {
   //   try {
-  //     const provider = new firebase.auth.GoogleAuthProvider();
-  //     await this.afAuth.signInWithRedirect(provider);
-  //     // Handle successful login
+  //     const user = await GoogleAuth.signIn();
+  //     console.log('Signed in user:', user);
   //   } catch (error) {
-  //     // Handle login errors
+  //     console.error('Google Sign-In Error:', error);
   //   }
   // }
 
-  async googleLogin() {
-    try {
-      const user = await GoogleAuth.signIn();
-      console.log('Signed in user:', user);
-    } catch (error) {
-      console.error('Google Sign-In Error:', error);
-    }
-  }
-
   // Logout function
-  // logout() {
-  //   return this.afAuth.signOut();
-  // }
-  async logout() {
-    // await GoogleAuth.signOut();
-    await this.afAuth.signOut();
-    console.log('User signed out');
-    try {
-      await GoogleAuth.signOut(); // This will sign out the user from Google
-      console.log('User signed out from Google');
-    } catch (error) {
-      console.error('Error signing out from Google:', error);
-    }
+  logout() {
+    return this.afAuth.signOut();
   }
+  // async logout() {
+  //   // await GoogleAuth.signOut();
+  //   await this.afAuth.signOut();
+  //   console.log('User signed out');
+  //   try {
+  //     await GoogleAuth.signOut(); // This will sign out the user from Google
+  //     console.log('User signed out from Google');
+  //   } catch (error) {
+  //     console.error('Error signing out from Google:', error);
+  //   }
+  // }
 
   getUserDetails(): Observable<any> {
     return this.afAuth.authState;
