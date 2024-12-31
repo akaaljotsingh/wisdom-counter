@@ -26,7 +26,8 @@ isPressed: any;
   constructor(private sharedService: SharedService){}
 
   ngOnInit() {
-    const selectedEntry = this.sharedService.getSelectedEntry();
+    let selectedEntry:any = localStorage.getItem('selectedEntry') ? localStorage.getItem('selectedEntry') : null;
+    selectedEntry = selectedEntry ? JSON.parse(selectedEntry) : null;
     console.log("🚀 ~ CounterComponent ~ ngOnInit ~ selectedEntry:", selectedEntry)
     if (selectedEntry) {
       this.userName = selectedEntry.name;
@@ -35,7 +36,8 @@ isPressed: any;
   }
 
   ionViewWillEnter() {
-    const selectedEntry = this.sharedService.getSelectedEntry();
+    let selectedEntry:any = localStorage.getItem('selectedEntry') ? localStorage.getItem('selectedEntry') : null;
+    selectedEntry = selectedEntry ? JSON.parse(selectedEntry) : null;
     console.log("🚀 ~ CounterComponent ~ ngOnInit ~ selectedEntry:", selectedEntry)
     if (selectedEntry) {
       this.userName = selectedEntry.name;
@@ -47,10 +49,45 @@ isPressed: any;
     if (this.count < 9999) {
       this.count++;
     }
+    let countHistory: { name: string; count: number }[] = [];
+    const savedHistory = localStorage.getItem('countHistory');
+    if (savedHistory) {
+      countHistory = JSON.parse(savedHistory);
+    }
+    const existingEntryIndex = countHistory.findIndex(entry => entry.name === this.userName);
+  
+    if (existingEntryIndex !== -1) {
+      // Update the existing entry
+      countHistory[existingEntryIndex].count = this.count;
+    } else {
+      // Add a new entry
+      countHistory.push({ name: this.userName, count: this.count });
+    }
+  
+    // Save the updated history back to localStorage
+    localStorage.setItem('countHistory', JSON.stringify(countHistory));
   }
 
   resetCount() {
     this.count = 0;
+
+    let countHistory: { name: string; count: number }[] = [];
+    const savedHistory = localStorage.getItem('countHistory');
+    if (savedHistory) {
+      countHistory = JSON.parse(savedHistory);
+    }
+    const existingEntryIndex = countHistory.findIndex(entry => entry.name === this.userName);
+  
+    if (existingEntryIndex !== -1) {
+      // Update the existing entry
+      countHistory[existingEntryIndex].count = this.count;
+    } else {
+      // Add a new entry
+      countHistory.push({ name: this.userName, count: this.count });
+    }
+  
+    // Save the updated history back to localStorage
+    localStorage.setItem('countHistory', JSON.stringify(countHistory));
   }
 
   saveCount() {

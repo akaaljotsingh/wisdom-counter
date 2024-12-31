@@ -45,9 +45,11 @@
     }
 }
 .count-wrap {
-    position: absolute;
-    bottom: 15vh;
-    width: 100%;
+    // position: absolute;
+    // bottom: 15vh;
+    // width: 100%;
+    margin-top: 13vh;
+    position: relative;
 }
 input {
     background: #d6d6d6;

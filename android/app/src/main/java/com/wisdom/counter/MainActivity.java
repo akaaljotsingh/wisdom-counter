@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.wisdom.counter;
 
 import com.getcapacitor.BridgeActivity;
 

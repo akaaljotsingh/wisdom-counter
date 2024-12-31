@@ -7,12 +7,18 @@ export class SharedService {
   private selectedEntry: { name: string; count: number } | null = null;
 
   setSelectedEntry(entry: { name: string; count: number }) {
-    this.selectedEntry = null;
     this.selectedEntry = entry;
+    localStorage.setItem('selectedEntry', JSON.stringify(entry));
+    console.log("🚀 ~ SharedService ~ setSelectedEntry ~ this.selectedEntry:", this.selectedEntry);
   }
-
+  
   getSelectedEntry() {
-    const entry = this.selectedEntry;
-    return entry;
+    if (!this.selectedEntry) {
+      const storedEntry = localStorage.getItem('selectedEntry');
+      this.selectedEntry = storedEntry ? JSON.parse(storedEntry) : null;
+    }
+    console.log("🚀 ~ SharedService ~ getSelectedEntry ~ entry:", this.selectedEntry);
+    return this.selectedEntry;
   }
+  
 }

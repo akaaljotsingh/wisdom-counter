@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.wisdom-counter',
+  appId: 'com.wisdom.counter',
   appName: 'wisdom-counter',
   webDir: 'www'
 };

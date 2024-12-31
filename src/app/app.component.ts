@@ -30,8 +30,8 @@ export class AppComponent {
   }
 
 
-  handleContinueFromHistory(entry: { name: string; count: number }) {
-    this.sharedService.setSelectedEntry(entry);
-    this.router.navigate(['/counter']);
-  }
+  // handleContinueFromHistory(entry: { name: string; count: number }) {
+  //   this.sharedService.setSelectedEntry(entry);
+  //   this.router.navigate(['/counter']);
+  // }
 }

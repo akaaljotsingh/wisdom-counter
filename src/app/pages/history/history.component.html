@@ -1,18 +1,24 @@
   <ion-list>
-    <ion-list-header>
-      <ion-label>Count History</ion-label>
-    </ion-list-header>
-    <ion-item-sliding *ngFor="let item of countHistory; let i = index">
-      <ion-item>
-        <ion-label><span class="history-count">{{ item.count }}</span> <span class="history-name">{{ item.name }}</span></ion-label>
-        <button class="cont-btn" (click)="continueWithCount(i)">Continue</button>
-        <!-- <ion-button (click)="continueWithCount(i)"  fill="outline">Continue</ion-button> -->
-      </ion-item>
-  
-      <ion-item-options side="end">
-        <ion-item-option color="danger" expandable (click)="deleteCount(i)">Delete</ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
+    <ul class="history-list">
+      <li style="    font-size: 22px;
+      margin-bottom: 20px;
+      margin-top: 18px;">Count History</li>
+    <li *ngFor="let item of countHistory; let i = index">
+      <div class="d-flex align-items-center justify-content-between">
+
+      
+        <span style="display: flex;align-items: center;">
+          <span class="history-count">{{ item.count }}</span> <span class="history-name">{{ item.name }}</span>
+        </span>
+        <div class="d-flex align-items-center">
+          <button class="cont-btn" (click)="continueWithCount(i)">Continue</button>
+        <button class="delt-btn" (click)="deleteCount(i)">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="red"><path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+        </button>
+        </div>
+      </div>
+    </li>
+  </ul>
   </ion-list>
 
 

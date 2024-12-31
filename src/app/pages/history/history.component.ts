@@ -43,8 +43,10 @@ export class HistoryComponent  implements OnInit {
   }
 
   continueWithCount(index: number) {
-    const selectedItem = this.countHistory[index];
-    this.sharedService.setSelectedEntry(selectedItem);
+    // const selectedItem = this.countHistory[index];
+    // this.sharedService.setSelectedEntry(selectedItem);
+    localStorage.setItem('selectedEntry', JSON.stringify(this.countHistory[index]));
+
     this.router.navigate(['/counter']); // Navigate to counter view
   }
 

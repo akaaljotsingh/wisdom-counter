@@ -27,4 +27,15 @@ export class TabsPage {
       }
     });
   }
+
+  changeRoute(path:any) {
+    localStorage.setItem('selectedEntry', '')
+    if(path == 'counter') {
+      this.router.navigate(['counter'], { replaceUrl: true });
+    }
+    if(path == 'history') {
+      this.router.navigate(['history'], { replaceUrl: true });
+    }
+
+  }
 }
