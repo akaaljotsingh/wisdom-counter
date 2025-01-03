@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.wisdom.counter',
+  appId: 'com.akaal.wisdom',
   appName: 'wisdom-counter',
   webDir: 'www'
 };

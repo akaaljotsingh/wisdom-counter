@@ -36,6 +36,9 @@ export class TabsPage {
     if(path == 'history') {
       this.router.navigate(['history'], { replaceUrl: true });
     }
+    if(path == 'account') {
+      this.router.navigate(['account'], { replaceUrl: true });
+    }
 
   }
 }

@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "com.wisdom.counter"
+    namespace "com.akaal.wisdom"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.wisdom.counter"
+        applicationId "com.akaal.wisdom"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
